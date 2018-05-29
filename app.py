@@ -7,6 +7,8 @@ from login.views import login
 from ubicaciones.departamento import departamento as ubicaciones_departamento
 from ubicaciones.provincia import provincia as ubicaciones_provincia
 from ubicaciones.distrito import distrito as ubicaciones_distrito
+# importaciones de blueprints - maestros
+from maestros.views import maestros as maestros_views
 
 app = Flask(__name__, static_url_path='/static', template_folder='templates')
 #cors = CORS(app)
@@ -16,6 +18,7 @@ app.register_blueprint(login)
 app.register_blueprint(ubicaciones_departamento)
 app.register_blueprint(ubicaciones_provincia)
 app.register_blueprint(ubicaciones_distrito)
+app.register_blueprint(maestros_views)
 
 @app.route('/test/conexion')
 def test_conexion():

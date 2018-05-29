@@ -7,7 +7,7 @@ from .models import Departamento
 #from config.middleware import csrf_form
 departamento = Blueprint('departamento', __name__)
 
-@departamento.route('/departamento/listar', methods=['GET'])
+@departamento.route('/ubicaciones/departamento/listar', methods=['GET'])
 def listar():
   rpta = None
   status = 200
