@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from config.constants import constants
+from .constants import constants
 
 def load_css(csss):
   rpta = ''
