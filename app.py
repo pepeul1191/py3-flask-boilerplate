@@ -3,12 +3,14 @@
 from flask import Flask
 # importaciones de blueprints
 from login.views import login
+from ubicaciones.departamento import departamento as ubicaciones_departamento
 
 app = Flask(__name__, static_url_path='/static', template_folder='templates')
 #cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 # blueprints
 app.register_blueprint(login)
+app.register_blueprint(ubicaciones_departamento)
 
 @app.route('/test/conexion')
 def test_conexion():

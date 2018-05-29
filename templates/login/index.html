@@ -1,5 +1,25 @@
 {% extends 'layouts/blank.html' %}
 {% block content %}
-	login<br>
-  {{locals['constants']['BASE_URL']}}
+<div class="login-page">
+  <div class="form">
+    <i class="fa fa-umbrella" aria-hidden="true" id="logo-brand"></i>
+    <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form" action="{{locals['constants']['BASE_URL']}}login/acceder" method="post">
+      <input type="text" placeholder="usuario" name="usuario"/>
+      <input type="password" placeholder="contrasenia" name="contrasenia"/>
+      <input type="hidden" name="csrftoken" value="{{locals['constants']['CSRF']}}">
+      <button type="submit">login</button>
+      <p class="message">Not registered? <a href="#">Create an account</a></p>
+    </form>
+  </div>
+</div>
+<footer>
+  <p>Powered by: <a href="http://softweb.pe/">Software Web Perú</a> © 2011-2018 </p>
+</footer>
 {% endblock %}
