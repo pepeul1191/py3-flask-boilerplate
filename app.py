@@ -1,7 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask
-app = Flask(__name__, static_url_path='/static')
+# importaciones de blueprints
+from login.views import login
+
+app = Flask(__name__, static_url_path='/static', template_folder='/templates')
+#cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+# blueprints
+app.register_blueprint(login)
 
 @app.route('/test/conexion')
 def test_conexion():
