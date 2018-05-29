@@ -11,13 +11,13 @@ class Provincia(Base):
   __tablename__ = 'provincias'
   id = Column(Integer, primary_key=True)
   nombre = Column(String)
-  departamento_id = Column(Integer, ForeignKey('departamento.id'))
+  departamento_id = Column(Integer, ForeignKey('departamentos.id'))
 
 class Distrito(Base):
   __tablename__ = 'distritos'
   id = Column(Integer, primary_key=True)
   nombre = Column(String)
-  provincia_id = Column(Integer, ForeignKey('provincia.id'))
+  provincia_id = Column(Integer, ForeignKey('provincias.id'))
 
 class VWDistritoProvinciaDepartamento(Base):
   __tablename__ = 'vw_distrito_provincia_departamentos'
