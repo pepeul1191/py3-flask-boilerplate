@@ -9,6 +9,19 @@ provincia = Blueprint('provincia', __name__)
 
 @provincia.route('/provincia/listar/<departamento_id>', methods=['GET'])
 def listar(departamento_id):
-  conn = engine_ubicaciones.connect()
-  stmt = select([Provincia.id, Provincia.nombre]).where(Provincia.departamento_id == departamento_id)
-  return json.dumps([dict(r) for r in conn.execute(stmt)])
+  rpta = None
+  status = 200
+  try:
+    conn = engine_ubicaciones.connect()
+    stmt = select([Provincia.id, Provincia.nombre]).where(Provincia.departamento_id == departamento_id)
+    rpta = [dict(r) for r in conn.execute(stmt)]
+  except Exception as e:
+    rpta = {
+      'tipo_mensaje': 'error',
+      'mensaje': [
+        'Se ha producido un error en listar las provincias del departamento',
+        str(e)
+      ],
+    }
+    status = 500
+  return json.dumps(rpta), status

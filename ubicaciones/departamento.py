@@ -9,6 +9,19 @@ departamento = Blueprint('departamento', __name__)
 
 @departamento.route('/departamento/listar', methods=['GET'])
 def listar():
-  conn = engine_ubicaciones.connect()
-  stmt = select([Departamento])
-  return json.dumps([dict(r) for r in conn.execute(stmt)])
+  rpta = None
+  status = 200
+  try:
+    conn = engine_ubicaciones.connect()
+    stmt = select([Departamento])
+    rpta = [dict(r) for r in conn.execute(stmt)]
+  except Exception as e:
+    rpta = {
+      'tipo_mensaje': 'error',
+      'mensaje': [
+        'Se ha producido un error en listar los departamento',
+        str(e)
+      ],
+    }
+    status = 500
+  return json.dumps(rpta), status
