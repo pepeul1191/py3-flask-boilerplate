@@ -2,17 +2,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Servicio de Monta</title>
-	<link rel="shortcut icon" href="{{constants['STATICS_URL']}}favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	{% block css %}{% endblock %}
-	{% block js_top %}{% endblock %}
 <body>
-	<input type="hidden" name="csrfmiddlewaretoken" value="{{constants['CSRF']}}">
-	<script id="blank-template" type="text/x-handlebars-template">
-		{% raw %}{{> yield}}{% endraw %}
-	</script>
-	<script id="yield" type="text/x-handlebars-template">
-		{% block content %}{% endblock %}
-	</script>
+	<h1>header</h1>
+	{% block content %}{% endblock %}
+	<h1>footer</h1>
 	{% block js_bottom %}{% endblock %}
 </body>
 </html>
