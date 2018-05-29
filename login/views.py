@@ -23,5 +23,4 @@ def index():
     },
     ]
   data = {'titulo_pagina' : 'Gestión Accesos', 'modulo' : 'Accesos'}
-  #return render_template('accesos/index.html', constants = constants, data = json.dumps(data), menu = json.dumps(menu), items = json.dumps(items))
-  return 'login'
+  return render_template('login/index.html', )

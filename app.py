@@ -4,7 +4,7 @@ from flask import Flask
 # importaciones de blueprints
 from login.views import login
 
-app = Flask(__name__, static_url_path='/static', template_folder='/templates')
+app = Flask(__name__, static_url_path='/static', template_folder='templates')
 #cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 # blueprints
