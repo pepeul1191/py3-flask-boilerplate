@@ -8,12 +8,6 @@ login = Blueprint('login', __name__)
 
 @login.route('/login', methods=['GET'])
 def index():
-  menu = [
-    {'url' : 'accesos/', 'nombre' : 'Accesos'},
-    {'url' : 'maestros/', 'nombre' : 'Maestros'},
-    {'url' : 'agricultores/', 'nombre' : 'Agricultores'},
-    {'url' : 'estaciones/', 'nombre' : 'Estaciones'},
-  ]
   items = [
     {"subtitulo":"Opciones", "items":
       [
@@ -21,6 +15,9 @@ def index():
         {"item":"Gestión de Usuarios","url":"accesos/#/usuario"}
       ]
     },
-    ]
-  data = {'titulo_pagina' : 'Gestión Accesos', 'modulo' : 'Accesos'}
-  return render_template('login/index.html', )
+  ]
+  locals = {
+    'constants': constants,
+
+  }
+  return render_template('login/index.html', locals = locals)
