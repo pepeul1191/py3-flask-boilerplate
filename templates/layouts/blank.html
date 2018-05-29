@@ -3,11 +3,11 @@
 	<meta charset="UTF-8">
 	<title>Servicio de Monta</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	{% block css %}{% endblock %}
+	{{locals['css']|safe}}
 <body>
 	<h1>{{locals['constants']['BASE_URL']}}</h1>
 	{% block content %}{% endblock %}
 	<h1>footer</h1>
-	{% block js_bottom %}{% endblock %}
+	{{locals['js']|safe}}
 </body>
 </html>
